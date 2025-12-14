@@ -24,7 +24,7 @@
         { name = "plugins/git"; tags = [ from:oh-my-zsh ]; }
         { name = "Seinh/git-prune"; tags = [ from:github ]; }
         { name = "supercrabtree/k"; tags = [ from:github ]; }
-        { name = "b4b4r07/enhancd"; tags = [ use:init.sh ]; }
+        { name = "babarot/enhancd"; tags = [ use:init.sh ]; }
         { name = "mollifier/anyframe" ;}
         { name = "mafredri/zsh-async"; tags = [ from:github ]; }
         { name = "sindresorhus/pure"; tags = [ use:pure.zsh from:github as:theme ]; }

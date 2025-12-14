@@ -82,6 +82,7 @@
       kdePackages.kate
       lutris
       moonlight-qt
+      fzf
     ];
   };
 
