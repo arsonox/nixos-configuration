@@ -71,6 +71,8 @@
     #media-session.enable = true;
   };
 
+  services.fwupd.enable = true;
+
   services.libinput.enable = true;
 
   users.users.nox = {
@@ -101,6 +103,11 @@
     tealdeer
     onlyoffice-desktopeditors
     python3
+    kdePackages.discover
+    kdePackages.sddm-kcm
+    kdePackages.kcolorchooser
+    vlc
+    wayland-utils
   ];
 
   fonts.packages = with pkgs; [
