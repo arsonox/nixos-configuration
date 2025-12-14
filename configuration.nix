@@ -85,6 +85,7 @@
       lutris
       moonlight-qt
       fzf
+      discord
     ];
   };
 
@@ -128,6 +129,11 @@
     clean.enable = true;
     clean.extraArgs = "--keep 3";
     #flake = /home/user/my-nixos-config";
+  };
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
