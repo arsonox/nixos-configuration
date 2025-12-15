@@ -164,7 +164,10 @@
 
   fonts.packages = with pkgs; [
     corefonts
-    nerd-fonts
+    noto-fonts
+    #noto-fonts-color-emoji
+    twemoji-color-font
+    vista-fonts
   ]; 
 
   system.autoUpgrade.enable = true;
