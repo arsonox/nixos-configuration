@@ -15,7 +15,7 @@
 
     kernel = {
       sysctl = {
-        "vm.swappiness" = 60;
+        "vm.swappiness" = 100;
       };
     };
 		
