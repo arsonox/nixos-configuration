@@ -179,7 +179,7 @@
         mkdir -p ~/.local/share/fonts
         cp ${pkgs.corefonts}/share/fonts/truetype/* ~/.local/share/fonts/
         cp ${pkgs.noto-fonts}/share/fonts/truetype/* ~/.local/share/fonts/
-        cp ${pkgs.twemoji-color-fonts}/share/fonts/truetype/* ~/.local/share/fonts/
+        cp ${pkgs.twemoji-color-font}/share/fonts/truetype/* ~/.local/share/fonts/
         cp ${pkgs.vista-fonts}/share/fonts/truetype/* ~/.local/share/fonts/
         chmod 544 ~/.local/share/fonts
         chmod 444 ~/.local/share/fonts/*
