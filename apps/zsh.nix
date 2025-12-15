@@ -12,8 +12,8 @@
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
-      update = "nix flake update && sudo nixos-rebuild switch --flake .";
-      upgrade = "sudo nixos-rebuild switch --upgrade";
+      update = "sudo nixos-rebuild switch";
+      upgrade = "nix flake update && update";
     };
     history.size = 100;
 
