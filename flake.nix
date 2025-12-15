@@ -5,6 +5,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #plasma-manager = {
     #  url = "github:nix-community/plasma-manager";
     #  inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +16,7 @@
     #};
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, aagl, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -26,6 +30,11 @@
             backupFileExtension = "backup";
             #sharedModules = [ plasma-manager.homeModules.plasma-manager ];
           };
+        }
+        {
+          imports = [ aagl.nixosModules.default ];
+          nix.settings = aagl.nixConfig;
+          programs.honkers-railway-launcher.enable = true;
         }
       ];
     };

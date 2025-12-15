@@ -102,6 +102,25 @@
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    gamescopeSession.enable = true;
+    protontricks.enable = true;
+    extest.enable = true;
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
+
+  programs.gamemode.enable = true;
+
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
+  
   nixpkgs.config.allowUnfree = true;
 
   environment.sessionVariables = rec {
@@ -134,6 +153,8 @@
     streamcontroller
     wireguard-tools
     protonvpn-gui
+    gamescope-wsi
+    protonup-qt
   ];
 
   fonts.packages = with pkgs; [
