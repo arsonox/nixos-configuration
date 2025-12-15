@@ -81,7 +81,7 @@
     isNormalUser = true;
     description = "nox";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       kdePackages.kate
       lutris
@@ -106,7 +106,7 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
+    #gamescopeSession.enable = true;
     protontricks.enable = true;
     extest.enable = true;
     extraCompatPackages = with pkgs; [
@@ -120,6 +120,11 @@
     enable = true;
     capSysNice = true;
   };
+
+  programs.virt-manager.enable = true;
+  #users.groups.libvirtd.members = [ "nox" ]; # is this even required?
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
   
   nixpkgs.config.allowUnfree = true;
 
