@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  #home.sessionVariables = {
+  #  ENHANCD_FILTER = "fzf --height 40%";
+  #};
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -9,7 +12,7 @@
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
-      update = "sudo nixos-rebuild switch";
+      update = "nix flake update && sudo nixos-rebuild switch --flake .";
       upgrade = "sudo nixos-rebuild switch --upgrade";
     };
     history.size = 100;
@@ -24,7 +27,7 @@
         { name = "plugins/git"; tags = [ from:oh-my-zsh ]; }
         { name = "Seinh/git-prune"; tags = [ from:github ]; }
         { name = "supercrabtree/k"; tags = [ from:github ]; }
-        { name = "babarot/enhancd"; tags = [ use:init.sh ]; }
+        # { name = "babarot/enhancd"; tags = [ use:init.sh ]; }
         { name = "mollifier/anyframe" ;}
         { name = "mafredri/zsh-async"; tags = [ from:github ]; }
         { name = "sindresorhus/pure"; tags = [ use:pure.zsh from:github as:theme ]; }
