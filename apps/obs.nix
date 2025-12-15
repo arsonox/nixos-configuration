@@ -1,9 +1,10 @@
 { config, pkgs, ... }: 
 {
-  program.obs-studio = {
+  programs.obs-studio = {
     enable = true;
-    plugins = [
-      obs-input-overlay
+    plugins = with pkgs.obs-studio-plugins; [
+      input-overlay
+      obs-pipewire-audio-capture
     ];
   };
 }
