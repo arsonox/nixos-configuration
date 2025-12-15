@@ -89,6 +89,7 @@
       fzf
       discord
       gajim
+      telegram-desktop
     ];
   };
 
@@ -172,20 +173,20 @@
 
   # OnlyOffice cant handle symlinks
   # issue #1859 on github
-  system.userActivationScripts = {
-    copy-fonts-local-share = {
-      text = ''
-        rm -rf ~/.local/share/fonts
-        mkdir -p ~/.local/share/fonts
-        cp ${pkgs.corefonts}/share/fonts/truetype/* ~/.local/share/fonts/
-        cp ${pkgs.noto-fonts}/share/fonts/truetype/* ~/.local/share/fonts/
-        cp ${pkgs.twemoji-color-font}/share/fonts/truetype/* ~/.local/share/fonts/
-        cp ${pkgs.vista-fonts}/share/fonts/truetype/* ~/.local/share/fonts/
-        chmod 544 ~/.local/share/fonts
-        chmod 444 ~/.local/share/fonts/*
-      '';
-    };
-  };
+  # system.userActivationScripts = {
+  #   copy-fonts-local-share = {
+  #     text = ''
+  #       rm -rf ~/.local/share/fonts
+  #       mkdir -p ~/.local/share/fonts
+  #       cp ${pkgs.corefonts}/share/fonts/truetype/* ~/.local/share/fonts/
+  #       cp ${pkgs.noto-fonts}/share/fonts/truetype/* ~/.local/share/fonts/
+  #       cp ${pkgs.twemoji-color-font}/share/fonts/truetype/* ~/.local/share/fonts/
+  #       cp ${pkgs.vista-fonts}/share/fonts/truetype/* ~/.local/share/fonts/
+  #       chmod 544 ~/.local/share/fonts
+  #       chmod 444 ~/.local/share/fonts/*
+  #     '';
+  #   };
+  # };
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
