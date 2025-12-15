@@ -86,6 +86,7 @@
       moonlight-qt
       fzf
       discord
+      gajim
     ];
   };
 
