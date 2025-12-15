@@ -164,6 +164,7 @@
 
   fonts.packages = with pkgs; [
     corefonts
+    nerdfonts
   ]; 
 
   system.autoUpgrade.enable = true;
