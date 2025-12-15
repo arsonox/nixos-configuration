@@ -14,6 +14,7 @@
       la = "ls -la";
       update = "sudo nixos-rebuild switch";
       upgrade = "nix flake update && update";
+      uptest = "sudo nixos-rebuild test";
     };
     history.size = 100;
 

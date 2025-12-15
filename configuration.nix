@@ -131,6 +131,7 @@
     kdePackages.kcolorchooser
     vlc
     wayland-utils
+    streamcontroller
   ];
 
   fonts.packages = with pkgs; [
