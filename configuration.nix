@@ -98,6 +98,7 @@
     package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) {});
   };
   programs.zsh.enable = true;
+  programs.dconf.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
