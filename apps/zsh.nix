@@ -9,8 +9,8 @@
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
-      update = "nixos-rebuild switch --sudo";
-      upgrade = "nixos-rebuild switch --upgrade --sudo";
+      update = "sudo nixos-rebuild switch";
+      upgrade = "sudo nixos-rebuild switch --upgrade";
     };
     history.size = 100;
 
