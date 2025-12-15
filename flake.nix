@@ -5,6 +5,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    #plasma-manager = {
+    #  url = "github:nix-community/plasma-manager";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #  inputs.home-manager.follows = "home-manager";
+    #};
   };
 
   outputs = { self, nixpkgs, home-manager, ... }: {
@@ -19,6 +24,7 @@
             useUserPackages = true;
             users.nox = import ./nox.nix;
             backupFileExtension = "backup";
+            #sharedModules = [ plasma-manager.homeModules.plasma-manager ];
           };
         }
       ];
