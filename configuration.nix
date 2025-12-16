@@ -1,10 +1,17 @@
-{ config, libs, pkgs, ... }:
+{ config, libs, pkgs, lib, ... }:
 
+let
+  userlist = lib.filter
+    (n: lib.strings.hasSuffix ".nix" n)
+    (lib.filesystem.listFilesRecursive ./users);
+  system-packagelist = lib.filter
+    (n: lib.strings.hasSuffix ".nix" n)
+    (lib.filesystem.listFilesRecursive ./system-packages);
+in    
 {
-  imports =
-    [ 
-      ./boot.nix
-    ];
+  imports = [ 
+    ./boot.nix
+  ] ++ userlist ++ system-packagelist;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -71,29 +78,13 @@
 
   services.libinput.enable = true;
 
-  users.users.nox = {
-    isNormalUser = true;
-    description = "nox";
-    shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
-    packages = with pkgs; [
-      kdePackages.kate
-      lutris
-      moonlight-qt
-      fzf
-      discord
-      gajim
-      telegram-desktop
-    ];
-  };
-
-  programs.firefox = {
-    enable = true;
-    preferences = {
-      "widget.use-xdg-desktop-portal.file-picker"= 1;
-    };
-    package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) {});
-  };
+  # programs.firefox = {
+  #   enable = true;
+  #   preferences = {
+  #     "widget.use-xdg-desktop-portal.file-picker"= 1;
+  #   };
+  #   package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) {});
+  # };
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
