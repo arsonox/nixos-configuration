@@ -3,7 +3,7 @@
 {
   networking.hostName = "nixos";
 
-  nix.settings.substitute = false;
+  # nix.settings.substitute = false;
   # system.includeBuildDependencies = true;
 
   # nix.settings.system-features = [
