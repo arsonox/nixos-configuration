@@ -143,7 +143,6 @@
     btrfs-progs
     libsForQt5.qtstyleplugin-kvantum
     tealdeer
-    onlyoffice-desktopeditors
     python3
     kdePackages.discover
     kdePackages.sddm-kcm
@@ -155,6 +154,10 @@
     protonvpn-gui
     gamescope-wsi
     protonup-qt
+    libreoffice-qt
+    hunspell
+    hunspellDicts.en_UK
+    unspellDicts.nl_NL
   ];
 
   fonts.packages = with pkgs; [
