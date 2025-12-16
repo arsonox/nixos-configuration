@@ -156,8 +156,8 @@
     protonup-qt
     libreoffice-qt
     hunspell
-    hunspellDicts.en_UK
-    unspellDicts.nl_NL
+    hunspellDicts.en_GB-ise
+    hunspellDicts.nl_NL
   ];
 
   fonts.packages = with pkgs; [
