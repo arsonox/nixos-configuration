@@ -12,7 +12,7 @@
       lookAndFeel = "org.kde.breezedark.desktop";
       cursor = {
         theme = "Bibata-Modern-Ice";
-        size = 32;
+        size = 22;
       };
       iconTheme = "Breeze Chameleon Dark";
       wallpaper = /etc/nixos/assets/GyRo9sDWEAAIrql.jpg;
@@ -75,9 +75,9 @@
             iconTasks = {
               launchers = [
                 "applications:systemsettings.desktop"
-                "application:org.kde.dolphin.desktop"
+                "applications:org.kde.dolphin.desktop"
                 "applications:firefox.desktop"
-                "applications:kde.konsole.desktop"
+                "applications:org.kde.konsole.desktop"
               ];
             };
           }
