@@ -20,7 +20,29 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./configuration.nix
+        # ./configuration.nix
+        ./machines/nixos.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.nox = import ./nox.nix;
+            backupFileExtension = "backup";
+            #sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+          };
+        }
+        {
+          imports = [ aagl.nixosModules.default ];
+          nix.settings = aagl.nixConfig;
+          programs.honkers-railway-launcher.enable = true;
+        }
+      ];
+    };
+    nixosConfigurations.fwdesktop = nixpkgs.lib.nixosSystem {
+      system = "x86_64";
+      modules = [
+        ./machines/fwdesktop.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
