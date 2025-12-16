@@ -27,6 +27,7 @@
   # };
 
   imports = [
+    ./nixos-hw.nix
     ../configuration.nix
   ];
 }
