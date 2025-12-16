@@ -3,11 +3,11 @@
 {
   networking.hostName = "fwdesktop";
 
-  nixpkgs.hostPlatform = {
-    gcc.arch = "znver5";
-    gcc.tune = "znver5";
-    system = "x86_64-linux";
-  };
+  # nixpkgs.hostPlatform = {
+  #   gcc.arch = "znver5";
+  #   gcc.tune = "znver5";
+  #   system = "x86_64-linux";
+  # };
 
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
