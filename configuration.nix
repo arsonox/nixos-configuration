@@ -28,8 +28,7 @@ in
     priority = 100;
   };
 
-  # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -78,34 +77,8 @@ in
 
   services.libinput.enable = true;
 
-  # programs.firefox = {
-  #   enable = true;
-  #   preferences = {
-  #     "widget.use-xdg-desktop-portal.file-picker"= 1;
-  #   };
-  #   package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) {});
-  # };
   programs.zsh.enable = true;
   programs.dconf.enable = true;
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    #gamescopeSession.enable = true;
-    protontricks.enable = true;
-    extest.enable = true;
-    extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-  };
-
-  programs.gamemode.enable = true;
-
-  programs.gamescope = {
-    enable = true;
-    capSysNice = true;
-  };
 
   programs.virt-manager.enable = true;
   #users.groups.libvirtd.members = [ "nox" ]; # is this even required?
@@ -143,7 +116,6 @@ in
     streamcontroller
     wireguard-tools
     protonvpn-gui
-    gamescope-wsi
     protonup-qt
     libreoffice-qt
     hunspell
@@ -158,23 +130,6 @@ in
     twemoji-color-font
     vista-fonts
   ]; 
-
-  # OnlyOffice cant handle symlinks
-  # issue #1859 on github
-  # system.userActivationScripts = {
-  #   copy-fonts-local-share = {
-  #     text = ''
-  #       rm -rf ~/.local/share/fonts
-  #       mkdir -p ~/.local/share/fonts
-  #       cp ${pkgs.corefonts}/share/fonts/truetype/* ~/.local/share/fonts/
-  #       cp ${pkgs.noto-fonts}/share/fonts/truetype/* ~/.local/share/fonts/
-  #       cp ${pkgs.twemoji-color-font}/share/fonts/truetype/* ~/.local/share/fonts/
-  #       cp ${pkgs.vista-fonts}/share/fonts/truetype/* ~/.local/share/fonts/
-  #       chmod 544 ~/.local/share/fonts
-  #       chmod 444 ~/.local/share/fonts/*
-  #     '';
-  #   };
-  # };
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
