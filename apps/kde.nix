@@ -29,6 +29,7 @@
         location = "top";
         height = 27;
         opacity = "translucent";
+        floating = true;
         widgets = [
           {
             kicker = {
@@ -70,6 +71,7 @@
         height = 44;
         opacity = "translucent";
         lengthMode = "fit";
+        floating = true;
         widgets = [
           {
             iconTasks = {
