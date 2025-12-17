@@ -47,14 +47,6 @@ in
     LC_TIME = "nl_NL.UTF-8";
   };
 
-  services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "alt-intl";
-  };
-
   console.keyMap = "us";
 
   services.printing.enable = true;
@@ -104,49 +96,20 @@ in
   environment.systemPackages = with pkgs; [
     vim
     wget
-    btrfs-progs
     libsForQt5.qtstyleplugin-kvantum
     tealdeer
     python3
-    kdePackages.discover
-    kdePackages.sddm-kcm
-    kdePackages.kcolorchooser
     vlc
     wayland-utils
     streamcontroller
     wireguard-tools
     protonvpn-gui
     protonup-qt
-    libreoffice-qt
-    hunspell
-    hunspellDicts.en_GB-ise
-    hunspellDicts.nl_NL
   ];
-
-  fonts.packages = with pkgs; [
-    corefonts
-    noto-fonts
-    #noto-fonts-color-emoji
-    twemoji-color-font
-    vista-fonts
-  ]; 
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
-
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "weekly";
-    fileSystems = [ "/" ];
-  };
   
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep 3";
-    #flake = /home/user/my-nixos-config";
-  };
-
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
