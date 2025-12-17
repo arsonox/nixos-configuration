@@ -16,11 +16,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, aagl, ... }: {
+  outputs = { self, nixpkgs, home-manager, aagl, plasma-manager, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        # ./configuration.nix
         ./machines/nixos.nix
         home-manager.nixosModules.home-manager
         {
