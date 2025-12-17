@@ -48,9 +48,9 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.nox = import ./nox.nix;
+            users.nox = import ./home/nox.nix;
             backupFileExtension = "backup";
-            #sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+            sharedModules = [ plasma-manager.homeModules.plasma-manager ];
           };
         }
         {
