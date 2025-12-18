@@ -100,7 +100,6 @@ in
     libsForQt5.qtstyleplugin-kvantum
     tealdeer
     python3
-    vlc
     wayland-utils
     streamcontroller
     wireguard-tools

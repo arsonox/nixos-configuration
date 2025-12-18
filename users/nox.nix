@@ -14,6 +14,7 @@
       telegram-desktop
       winbox4
       wakelan
+      haruna
     ];
   };
 }
