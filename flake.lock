@@ -113,12 +113,33 @@
         "type": "github"
       }
     },
+    "r8126-driver": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1746067949,
+        "narHash": "sha256-0mw17bf+31wARNGdgiAaDiiTqiww0JKV2kZnG23pzso=",
+        "owner": "netpleb",
+        "repo": "r8126-driver-nix",
+        "rev": "7dbddca7fd0b5ab1f7ecf0671ea429660220a012",
+        "type": "github"
+      },
+      "original": {
+        "owner": "netpleb",
+        "repo": "r8126-driver-nix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "aagl": "aagl",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
-        "plasma-manager": "plasma-manager"
+        "plasma-manager": "plasma-manager",
+        "r8126-driver": "r8126-driver"
       }
     },
     "rust-overlay": {
