@@ -106,6 +106,7 @@ in
     wireguard-tools
     protonvpn-gui
     protonup-qt
+    powertop
   ];
 
   system.autoUpgrade.enable = true;
