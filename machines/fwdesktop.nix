@@ -26,8 +26,6 @@
     };
   };
 
-  powerManagement.powertop.enable = true;
-
   boot.kernelParams = [ "usbcore.autosuspend=-1" ];
 
   #hardware.system76.power-daemon.enable = true;
