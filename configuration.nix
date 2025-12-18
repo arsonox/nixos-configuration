@@ -106,6 +106,7 @@ in
     protonvpn-gui
     protonup-qt
     powertop
+    ethtool
   ];
 
   system.autoUpgrade.enable = true;
