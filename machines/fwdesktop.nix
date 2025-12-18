@@ -16,8 +16,20 @@
     cpuFreqGovernor = "schedutil";
   };
 
-  hardware.system76.power-daemon.enable = true;
-  services.system76-scheduler.enable = true;
+  services.power-profiles-daemon.enable = false;
+
+  services.thermald.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      USB_AUTOSUSPEND = 0;
+    };
+  };
+
+  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
+
+  #hardware.system76.power-daemon.enable = true;
+  #services.system76-scheduler.enable = true;
 
   #services.auto-cpufreq.enable = true;
 

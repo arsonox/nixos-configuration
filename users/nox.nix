@@ -13,6 +13,7 @@
       gajim
       telegram-desktop
       winbox4
+      wakelan
     ];
   };
 }
