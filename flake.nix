@@ -15,7 +15,7 @@
       inputs.home-manager.follows = "home-manager";
     };
     r8126-driver = {
-      url = "github:netpleb/r8126-driver-nix";
+      url = "github:arsonox/r8126-driver-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
