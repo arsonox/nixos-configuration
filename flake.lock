@@ -120,15 +120,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1746067949,
-        "narHash": "sha256-0mw17bf+31wARNGdgiAaDiiTqiww0JKV2kZnG23pzso=",
-        "owner": "netpleb",
+        "lastModified": 1766098397,
+        "narHash": "sha256-xs0QgKE8TjPJi2XETOv3Li2T5ry7mnT5A3QZPKNOryA=",
+        "owner": "arsonox",
         "repo": "r8126-driver-nix",
-        "rev": "7dbddca7fd0b5ab1f7ecf0671ea429660220a012",
+        "rev": "3bc175daccfc1973955ca1592ffaffb0b1c85b39",
         "type": "github"
       },
       "original": {
-        "owner": "netpleb",
+        "owner": "arsonox",
         "repo": "r8126-driver-nix",
         "type": "github"
       }
