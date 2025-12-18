@@ -12,6 +12,7 @@
       discord
       gajim
       telegram-desktop
+      winbox4
     ];
   };
 }
