@@ -15,6 +15,7 @@
       winbox4
       wakelan
       haruna
+      yt-dlp
     ];
   };
 }
