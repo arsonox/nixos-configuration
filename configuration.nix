@@ -78,6 +78,7 @@ in
   virtualisation.spiceUSBRedirection.enable = true;
   
   nixpkgs.config.allowUnfree = true;
+  hardware.enableAllFirmware = true;
 
   environment.sessionVariables = rec {
     XDG_CACHE_HOME = "$HOME/.cache";
