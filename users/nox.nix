@@ -17,6 +17,7 @@
       wakelan
       haruna
       yt-dlp
+      ungoogled-chromium
     ];
   };
 }
