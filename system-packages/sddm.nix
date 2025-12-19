@@ -4,7 +4,7 @@ let
   sddm-astronaut = pkgs.sddm-astronaut.override { embeddedTheme = "purple_leaves"; };
 in
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     sddm-astronaut
   ];
 
