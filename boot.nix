@@ -4,7 +4,21 @@
 		consoleLogLevel = 3;
 		initrd.verbose = false;
 		initrd.systemd.enable = true;
-		kernelParams = [
+
+    extraModulePackages = with config.boot.kernelPackages; [
+      v4l2loopback.out
+    ];
+
+    kernelModules = [
+      "v4l2loopback"
+      "snd-aloop"
+    ];
+
+    extraModprobeConfig = ''
+      options v4l2loopback devices=1 video_nr=1 exclusive_caps=1 card_label="OBS Cam"
+    '';
+    
+    kernelParams = [
 			"quiet"
 			"splash"
 			"initremap=on"

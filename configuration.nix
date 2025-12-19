@@ -65,6 +65,8 @@ in
     #media-session.enable = true;
   };
 
+  security.polkit.enable = true;
+
   services.fwupd.enable = true;
 
   services.libinput.enable = true;
@@ -111,6 +113,7 @@ in
     protonup-qt
     powertop
     ethtool
+    v4l-utils
   ];
 
   system.autoUpgrade.enable = true;
