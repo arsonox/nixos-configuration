@@ -14,6 +14,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    #lmstudio = {
+    #  url = "github:tomsch/lmstudio-nix";
+    #};
     #r8126-driver = {
     #  url = "github:arsonox/r8126-driver-nix";
     #  inputs.nixpkgs.follows = "nixpkgs";
