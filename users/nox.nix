@@ -19,6 +19,7 @@
       yt-dlp
       ungoogled-chromium
       iperf3
+      dino
     ];
   };
 }
