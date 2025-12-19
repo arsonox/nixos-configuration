@@ -19,7 +19,10 @@
       yt-dlp
       ungoogled-chromium
       iperf3
-      dino
+      mission-center
+      (ollama.override {
+        acceleration = "rocm";
+      })
     ];
   };
 }
