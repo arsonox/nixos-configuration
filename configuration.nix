@@ -114,6 +114,7 @@ in
     powertop
     ethtool
     v4l-utils
+    usbutils
   ];
 
   system.autoUpgrade.enable = true;

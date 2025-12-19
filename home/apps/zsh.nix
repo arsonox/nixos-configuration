@@ -15,6 +15,7 @@
       update = "sudo nixos-rebuild switch";
       upgrade = "sudo nix flake update && update";
       uptest = "sudo nixos-rebuild test";
+      micreset = "sudo usbreset 046d:0ab7";
     };
     history.size = 100;
 
