@@ -6,5 +6,6 @@
     # noto-fonts-color-emoji
     twemoji-color-font
     vista-fonts
+    open-sans
   ];
 }
