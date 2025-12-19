@@ -24,6 +24,15 @@
       command = "konsole";
     };
 
+    input = {
+      keyboard.layouts = [
+        {
+          layout = "us";
+          variant = "intl";
+        }
+      ];
+    };
+
     panels = [
       {
         location = "top";
