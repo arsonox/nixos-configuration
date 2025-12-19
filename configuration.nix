@@ -90,6 +90,10 @@ in
     PATH = [
       "${XDG_BIN_HOME}"
     ];
+  
+    # In order for Wayland to be used by Chrome and Electron apps, we need to enable Ozone Wayland support.
+    # This is still experimental and therefore not enabled by default.
+    NIXOS_OZONE_WL = "1";
   };
 
   # List packages installed in system profile. To search, run:
