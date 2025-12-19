@@ -13,6 +13,7 @@
     discover
     sddm-kcm
     kcolorchooser
+    krdc
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [

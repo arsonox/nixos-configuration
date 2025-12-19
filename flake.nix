@@ -14,10 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    r8126-driver = {
-      url = "github:arsonox/r8126-driver-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #r8126-driver = {
+    #  url = "github:arsonox/r8126-driver-nix";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = { self, nixpkgs, home-manager, aagl, plasma-manager, ... }@inputs: {
@@ -61,11 +61,11 @@
           nix.settings = aagl.nixConfig;
           programs.honkers-railway-launcher.enable = true;
         }
-        inputs.r8126-driver.nixosModules.r8126
-        {
-          boot.kernelModules = [ "r8126" ];
-          boot.initrd.availableKernelModules = [ "r8126" ];
-        }
+        #inputs.r8126-driver.nixosModules.r8126
+        #{
+        #  boot.kernelModules = [ "r8126" ];
+        #  boot.initrd.availableKernelModules = [ "r8126" ];
+        #}
       ];
     };
   };
