@@ -20,7 +20,6 @@
     
     kernelParams = [
 			"quiet"
-			"splash"
 			"initremap=on"
 			"boot.shell_on_fail"
 			"udev.log_priority=3"
