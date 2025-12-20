@@ -27,9 +27,12 @@
     #};
   };
 
-  outputs = { self, nixpkgs, home-manager, aagl, plasma-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, aagl, plasma-manager, nur, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
       modules = [
         ./machines/nixos.nix
         home-manager.nixosModules.home-manager
@@ -51,6 +54,9 @@
     };
     nixosConfigurations.fwdesktop = nixpkgs.lib.nixosSystem {
       system = "x86_64";
+      specialArgs = {
+        inherit inputs;
+      };
       modules = [
         ./machines/fwdesktop.nix
         home-manager.nixosModules.home-manager
@@ -68,6 +74,7 @@
           nix.settings = aagl.nixConfig;
           programs.honkers-railway-launcher.enable = true;
         }
+        nur.modules.nixos.default
         #inputs.r8126-driver.nixosModules.r8126
         #{
         #  boot.kernelModules = [ "r8126" ];
