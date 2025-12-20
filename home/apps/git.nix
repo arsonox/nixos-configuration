@@ -9,7 +9,11 @@
         email = "1620870+arsonox@users.noreply.github.com";
       };
       init.defaultBranch = "main";
-      safe.directory = [ "/etc/nixos" "/home/nox/.dotfiles" ];
+      safe.directory = [ 
+        "/etc/nixos"
+        "/etc/nixos/assets"
+        "/home/nox/.dotfiles"
+      ];
 
       config = {
         push = { autoSetupRemote = true; };
