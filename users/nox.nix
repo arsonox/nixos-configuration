@@ -4,7 +4,7 @@
     isNormalUser = true;
     description = "nox";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" ];
 
     packages = with pkgs; [
       lutris
