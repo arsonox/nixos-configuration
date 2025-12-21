@@ -1,4 +1,4 @@
-{ config, libs, pkgs, ... }:
+{ ... }:
 
 {
   networking.hostName = "nixos";
@@ -13,13 +13,13 @@
   #   "kvm"
   #   "gccarch-znver3"
   # ];
-  
+
   # nixpkgs.hostPlatform = {
   #   gcc.arch = "znver3";
   #   gcc.tune = "znver3";
   #   system = "x86_64-linux";
   # };
- 
+
   # nixpkgs.buildPlatform = {
   #   gcc.arch = "znver3";
   #   gcc.tune = "znver3";

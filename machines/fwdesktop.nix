@@ -1,4 +1,4 @@
-{ config, libs, pkgs, ... }:
+{ ... }:
 
 {
 
@@ -9,7 +9,7 @@
   #   gcc.tune = "znver5";
   #   system = "x86_64-linux";
   # };
-  
+
   powerManagement = {
     enable = true;
     powertop.enable = true;

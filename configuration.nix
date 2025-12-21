@@ -1,4 +1,4 @@
-{ config, libs, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   userlist = lib.filter
@@ -7,9 +7,9 @@ let
   system-packagelist = lib.filter
     (n: lib.strings.hasSuffix ".nix" n)
     (lib.filesystem.listFilesRecursive ./system-packages);
-in    
+in
 {
-  imports = [ 
+  imports = [
     ./boot.nix
   ] ++ userlist ++ system-packagelist;
 
@@ -78,7 +78,7 @@ in
   #users.groups.libvirtd.members = [ "nox" ]; # is this even required?
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
-  
+
   nixpkgs.config.allowUnfree = true;
   hardware.enableAllFirmware = true;
 
@@ -92,7 +92,7 @@ in
     PATH = [
       "${XDG_BIN_HOME}"
     ];
-  
+
     # In order for Wayland to be used by Chrome and Electron apps, we need to enable Ozone Wayland support.
     # This is still experimental and therefore not enabled by default.
     # NIXOS_OZONE_WL = "1";
@@ -119,7 +119,7 @@ in
 
   #system.autoUpgrade.enable = true;
   #system.autoUpgrade.allowReboot = false;
-  
+
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;

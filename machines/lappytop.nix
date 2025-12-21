@@ -1,4 +1,4 @@
-{ config, libs, pkgs, ... }:
+{ ... }:
 
 {
   networking.hostName = "lappytop";

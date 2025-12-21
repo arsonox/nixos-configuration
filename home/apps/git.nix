@@ -1,4 +1,4 @@
-{ config, pkgs, ... } :
+{ ... } :
 
 {
   programs.git = {
@@ -9,7 +9,7 @@
         email = "1620870+arsonox@users.noreply.github.com";
       };
       init.defaultBranch = "main";
-      safe.directory = [ 
+      safe.directory = [
         "/etc/nixos"
         "/etc/nixos/assets"
         "/home/nox/.dotfiles"

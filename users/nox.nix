@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
     users.users.nox = {
     isNormalUser = true;
@@ -24,6 +24,7 @@
         acceleration = "rocm";
       })
       jq
+      nixd
     ];
   };
 }

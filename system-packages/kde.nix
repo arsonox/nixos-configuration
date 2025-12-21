@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services.xserver.enable = true;
@@ -14,7 +14,7 @@
     kcolorchooser
     krdc
   ];
-  
+
   #ibus is required for us alt-intl input for the gtk snowflakes since 4.20+.
   i18n.inputMethod = {
     enable = true;
