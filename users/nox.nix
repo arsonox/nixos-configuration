@@ -25,6 +25,7 @@
       })
       jq
       nixd
+      nixfmt
     ];
   };
 }
