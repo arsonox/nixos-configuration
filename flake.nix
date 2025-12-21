@@ -20,6 +20,7 @@
     };
     #lmstudio = {
     #  url = "github:tomsch/lmstudio-nix";
+    #  inputs.nixpkgs.follows = "nixpkgs";
     #};
     #r8126-driver = {
     #  url = "github:arsonox/r8126-driver-nix";
