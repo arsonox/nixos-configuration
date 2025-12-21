@@ -30,57 +30,48 @@
       nur,
       ...
     }@inputs:
+    let
+      hmModules = [
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.nox = import ./home/nox.nix;
+            backupFileExtension = "backup";
+            sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+          };
+        }
+      ];
+      aaglModule = [
+        {
+          imports = [ aagl.nixosModules.default ];
+          nix.settings = aagl.nixConfig;
+          programs.honkers-railway-launcher.enable = true;
+        }
+      ];
+    in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./machines/nixos.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.nox = import ./home/nox.nix;
-              backupFileExtension = "backup";
-              sharedModules = [ plasma-manager.homeModules.plasma-manager ];
-            };
-          }
-          {
-            imports = [ aagl.nixosModules.default ];
-            nix.settings = aagl.nixConfig;
-            programs.honkers-railway-launcher.enable = true;
-          }
-          nur.modules.nixos.default
-        ];
+        modules =
+          hmModules
+          ++ aaglModule
+          ++ [
+            ./machines/nixos.nix
+            nur.modules.nixos.default
+          ];
       };
       nixosConfigurations.fwdesktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = [
-          ./machines/fwdesktop.nix
-          { nixpkgs.config.rocmSupport = true; }
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.nox = import ./home/nox.nix;
-              backupFileExtension = "backup";
-              sharedModules = [ plasma-manager.homeModules.plasma-manager ];
-            };
-          }
-          {
-            imports = [ aagl.nixosModules.default ];
-            nix.settings = aagl.nixConfig;
-            programs.honkers-railway-launcher.enable = true;
-          }
-          nur.modules.nixos.default
-        ];
+        modules =
+          hmModules
+          ++ aaglModule
+          ++ [
+            ./machines/fwdesktop.nix
+            { nixpkgs.config.rocmSupport = true; }
+            nur.modules.nixos.default
+          ];
       };
     };
 }
