@@ -23,6 +23,7 @@
       (ollama.override {
         acceleration = "rocm";
       })
+      jq
     ];
   };
 }
