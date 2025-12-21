@@ -17,7 +17,6 @@
 
   services.power-profiles-daemon.enable = false;
 
-  services.thermald.enable = true;
   services.tlp = {
     enable = true;
     settings = {
@@ -34,13 +33,7 @@
     "amd_pstate=active"
   ];
 
-  #hardware.system76.power-daemon.enable = true;
-  #services.system76-scheduler.enable = true;
-
-  #services.auto-cpufreq.enable = true;
-
   hardware.amdgpu.initrd.enable = true;
-  #boot.initrd.kernelModules = [ "amdgpu" ];
 
   imports = [
     ./fwdesktop-hw.nix

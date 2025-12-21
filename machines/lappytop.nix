@@ -11,7 +11,6 @@
 
   services.power-profiles-daemon.enable = false;
 
-  services.thermald.enable = true;
   services.tlp = {
     enable = true;
     settings = {
@@ -29,7 +28,7 @@
     };
   };
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  hardware.amdgpu.initrd.enable = true;
 
   imports = [
     ./lappytop-hw.nix
@@ -37,7 +36,11 @@
   ];
 
   hardware.nvidia.open = true;
-  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+  services.xserver.videoDrivers = [
+    "amdgpu"
+    "nvidia"
+    "modesetting"
+  ];
   hardware.nvidia.modesetting.enable = true;
 
   hardware.nvidia.prime = {
