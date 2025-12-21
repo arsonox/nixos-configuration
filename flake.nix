@@ -29,9 +29,9 @@
       plasma-manager,
       nur,
       ...
-    }@inputs:
+    }:
     let
-      hmModules = [
+      sharedModules = [
         home-manager.nixosModules.home-manager
         {
           home-manager = {
@@ -42,36 +42,27 @@
             sharedModules = [ plasma-manager.homeModules.plasma-manager ];
           };
         }
-      ];
-      aaglModule = [
         {
           imports = [ aagl.nixosModules.default ];
           nix.settings = aagl.nixConfig;
           programs.honkers-railway-launcher.enable = true;
         }
+        nur.modules.nixos.default
       ];
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules =
-          hmModules
-          ++ aaglModule
-          ++ [
-            ./machines/nixos.nix
-            nur.modules.nixos.default
-          ];
+        modules = sharedModules ++ [
+          ./machines/nixos.nix
+        ];
       };
       nixosConfigurations.fwdesktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules =
-          hmModules
-          ++ aaglModule
-          ++ [
-            ./machines/fwdesktop.nix
-            { nixpkgs.config.rocmSupport = true; }
-            nur.modules.nixos.default
-          ];
+        modules = sharedModules ++ [
+          ./machines/fwdesktop.nix
+          { nixpkgs.config.rocmSupport = true; }
+        ];
       };
     };
 }
