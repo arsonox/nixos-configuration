@@ -117,8 +117,8 @@ in
     usbutils
   ];
 
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = false;
+  #system.autoUpgrade.enable = true;
+  #system.autoUpgrade.allowReboot = false;
   
   xdg.portal = {
     enable = true;

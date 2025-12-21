@@ -22,18 +22,11 @@
     #  url = "github:tomsch/lmstudio-nix";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
-    #r8126-driver = {
-    #  url = "github:arsonox/r8126-driver-nix";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
   };
 
-  outputs = { self, nixpkgs, home-manager, aagl, plasma-manager, nur, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, aagl, plasma-manager, nur, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-      };
       modules = [
         ./machines/nixos.nix
         home-manager.nixosModules.home-manager
@@ -55,9 +48,6 @@
     };
     nixosConfigurations.fwdesktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-      };
       modules = [
         ./machines/fwdesktop.nix
         home-manager.nixosModules.home-manager
@@ -76,11 +66,6 @@
           programs.honkers-railway-launcher.enable = true;
         }
         nur.modules.nixos.default
-        #inputs.r8126-driver.nixosModules.r8126
-        #{
-        #  boot.kernelModules = [ "r8126" ];
-        #  boot.initrd.availableKernelModules = [ "r8126" ];
-        #}
       ];
     };
   };
