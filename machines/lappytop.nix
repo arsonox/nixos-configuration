@@ -1,0 +1,49 @@
+{ config, libs, pkgs, ... }:
+
+{
+  networking.hostName = "lappytop";
+
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+    cpuFreqGovernor = "schedutil";
+  };
+
+  services.power-profiles-daemon.enable = false;
+
+  services.thermald.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 25;
+    };
+  };
+
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
+  imports = [
+    ./lappytop-hw.nix
+    ../configuration.nix
+  ];
+
+  hardware.nvidia.open = true;
+  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+  hardware.nvidia.modesetting.enable = true;
+
+  hardware.nvidia.prime = {
+    offload.enable = true;
+
+    amdgpuBusId = "PCI:5:0:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+}
