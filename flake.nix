@@ -18,55 +18,69 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #lmstudio = {
-    #  url = "github:tomsch/lmstudio-nix";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
   };
 
-  outputs = { self, nixpkgs, home-manager, aagl, plasma-manager, nur, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./machines/nixos.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.nox = import ./home/nox.nix;
-            backupFileExtension = "backup";
-            sharedModules = [ plasma-manager.homeModules.plasma-manager ];
-          };
-        }
-        {
-          imports = [ aagl.nixosModules.default ];
-          nix.settings = aagl.nixConfig;
-          programs.honkers-railway-launcher.enable = true;
-        }
-      ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      aagl,
+      plasma-manager,
+      nur,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./machines/nixos.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.nox = import ./home/nox.nix;
+              backupFileExtension = "backup";
+              sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+            };
+          }
+          {
+            imports = [ aagl.nixosModules.default ];
+            nix.settings = aagl.nixConfig;
+            programs.honkers-railway-launcher.enable = true;
+          }
+          nur.modules.nixos.default
+        ];
+      };
+      nixosConfigurations.fwdesktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./machines/fwdesktop.nix
+          { nixpkgs.config.rocmSupport = true; }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.nox = import ./home/nox.nix;
+              backupFileExtension = "backup";
+              sharedModules = [ plasma-manager.homeModules.plasma-manager ];
+            };
+          }
+          {
+            imports = [ aagl.nixosModules.default ];
+            nix.settings = aagl.nixConfig;
+            programs.honkers-railway-launcher.enable = true;
+          }
+          nur.modules.nixos.default
+        ];
+      };
     };
-    nixosConfigurations.fwdesktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./machines/fwdesktop.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.nox = import ./home/nox.nix;
-            backupFileExtension = "backup";
-            sharedModules = [ plasma-manager.homeModules.plasma-manager ];
-          };
-        }
-        {
-          imports = [ aagl.nixosModules.default ];
-          nix.settings = aagl.nixConfig;
-          programs.honkers-railway-launcher.enable = true;
-        }
-        nur.modules.nixos.default
-      ];
-    };
-  };
 }
