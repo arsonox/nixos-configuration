@@ -1,10 +1,15 @@
 { pkgs, ... }:
 {
-    users.users.nox = {
+  users.users.nox = {
     isNormalUser = true;
     description = "nox";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "kvm"
+    ];
 
     packages = with pkgs; [
       lutris
@@ -26,6 +31,8 @@
       jq
       nixd
       nixfmt
+      go
+      gopls
     ];
   };
 }
