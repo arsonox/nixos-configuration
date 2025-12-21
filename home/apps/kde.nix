@@ -81,6 +81,7 @@
         opacity = "translucent";
         lengthMode = "fit";
         floating = true;
+        hiding = "dodgewindows";
         widgets = [
           {
             iconTasks = {
