@@ -1,17 +1,19 @@
 { pkgs, lib, ... }:
 
 let
-  userlist = lib.filter
-    (n: lib.strings.hasSuffix ".nix" n)
-    (lib.filesystem.listFilesRecursive ./users);
-  system-packagelist = lib.filter
-    (n: lib.strings.hasSuffix ".nix" n)
-    (lib.filesystem.listFilesRecursive ./system-packages);
+  userlist = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
+    lib.filesystem.listFilesRecursive ./users
+  );
+  system-packagelist = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
+    lib.filesystem.listFilesRecursive ./system-packages
+  );
 in
 {
   imports = [
     ./boot.nix
-  ] ++ userlist ++ system-packagelist;
+  ]
+  ++ userlist
+  ++ system-packagelist;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -50,6 +52,13 @@ in
   console.keyMap = "us";
 
   services.printing.enable = true;
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  services.fstrim.enable = true;
 
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -148,7 +157,10 @@ in
     checkReversePath = false;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

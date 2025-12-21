@@ -1,7 +1,6 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
-
   networking.hostName = "fwdesktop";
 
   # nixpkgs.hostPlatform = {
@@ -30,19 +29,31 @@
     };
   };
 
-  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
+  boot.kernelParams = [
+    "usbcore.autosuspend=-1"
+    "amd_pstate=active"
+  ];
 
   #hardware.system76.power-daemon.enable = true;
   #services.system76-scheduler.enable = true;
 
   #services.auto-cpufreq.enable = true;
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  hardware.amdgpu.initrd.enable = true;
+  #boot.initrd.kernelModules = [ "amdgpu" ];
 
   imports = [
     ./fwdesktop-hw.nix
     ../configuration.nix
   ];
 
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  environment.systemPackages = with pkgs; [
+    framework-tool
+    framework-tool-tui
+  ];
+
+  services.xserver.videoDrivers = [
+    "amdgpu"
+    "modesetting"
+  ];
 }
