@@ -64,5 +64,11 @@
           { nixpkgs.config.rocmSupport = true; }
         ];
       };
+      nixosConfigurations.lappytop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = sharedModules ++ [
+          ./machines/lappytop.nix
+        ];
+      };
     };
 }
