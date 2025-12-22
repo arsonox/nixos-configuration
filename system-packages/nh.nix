@@ -5,7 +5,7 @@
     clean = {
       enable = true;
       extraArgs = "--keep 3";
-      dates = [ "daily" ];
+      dates = "daily";
     };
     flake = "/home/nox/etc/nixos";
   };
