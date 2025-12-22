@@ -74,6 +74,11 @@ in
     #media-session.enable = true;
   };
 
+  nix.optimise = {
+    automatic = true;
+    dates = [ "daily" ];
+  };
+
   security.polkit.enable = true;
 
   services.fwupd.enable = true;
