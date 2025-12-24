@@ -18,6 +18,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    run0-sudo-shim = {
+      url = "github:lordgrimmauld/run0-sudo-shim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,7 +33,7 @@
       plasma-manager,
       nur,
       ...
-    }:
+    }@inputs:
     let
       sharedModules = [
         home-manager.nixosModules.home-manager
@@ -48,6 +52,10 @@
           programs.honkers-railway-launcher.enable = true;
         }
         nur.modules.nixos.default
+        inputs.run0-sudo-shim.nixosModules.default
+        {
+          config.security.run0-sudo-shim.enable = true;
+        }
       ];
     in
     {

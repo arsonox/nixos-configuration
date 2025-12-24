@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   userlist = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
