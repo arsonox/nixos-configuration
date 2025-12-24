@@ -18,6 +18,10 @@
       wallpaper = /etc/nixos/assets/GyRo9sDWEAAIrql.jpg;
     };
 
+    kscreenlocker = {
+      wallpaper = /etc/nixos/assets/castorice-purple.jpg;
+    };
+
     hotkeys.commands."launch-konsole" = {
       name = "Launch Konsole";
       key = "Meta+Alt+K";

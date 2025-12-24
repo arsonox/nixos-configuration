@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 let
-  sddm-astronaut = pkgs.sddm-astronaut.override { embeddedTheme = "purple_leaves"; };
+  sddm-astronaut = pkgs.sddm-astronaut.override {
+    embeddedTheme = "purple_leaves";
+    themeConfig.Background = /etc/nixos/assets/castorice-purple.jpg;
+  };
 in
 {
   environment.systemPackages = [
