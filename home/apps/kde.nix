@@ -19,7 +19,7 @@
     };
 
     kscreenlocker = {
-      wallpaper = /etc/nixos/assets/castorice-purple.jpg;
+      appearance.wallpaper = /etc/nixos/assets/castorice-purple.jpg;
     };
 
     hotkeys.commands."launch-konsole" = {
