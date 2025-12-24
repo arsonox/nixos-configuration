@@ -22,6 +22,9 @@
       url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    #assets = {
+    #  url = "git+ssh://git@github.com/arsonox/nixos-assets";
+    #};
   };
 
   outputs =
@@ -57,6 +60,7 @@
           config.security.run0-sudo-shim.enable = true;
         }
       ];
+      # specialArgs = { inherit assets; };
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
