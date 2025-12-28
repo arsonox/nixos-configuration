@@ -14,6 +14,7 @@
     kcolorchooser
     krdc
     kgpg
+    kgamma
   ];
 
   #ibus is required for us alt-intl input for the gtk snowflakes since 4.20+.

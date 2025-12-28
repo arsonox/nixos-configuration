@@ -85,6 +85,7 @@ in
   };
 
   security.polkit.enable = true;
+  services.dbus.implementation = "broker";
 
   services.fwupd.enable = true;
 
