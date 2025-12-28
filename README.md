@@ -8,6 +8,7 @@ This is Nox' NixOS configuration.
 1. Partition the disks (`cfdisk`):
     1. Create a /boot partition (fat32);
     1. Optionally add a swap partition;
+    1. Optionally create btrfs swapfile (see below);
     1. Partition the rest of the space as btrfs.
 1. Mount partitions to /mnt and /mnt/boot;
 1. Create btrfs subvolumes, at least:
@@ -22,3 +23,9 @@ This is Nox' NixOS configuration.
 1. `reboot`;
 1. Move the configuration from `/etc/nixos` to `/home/nox/etc/nixos`;
 1. `ln -s /home/nox/etc/nixos /etc/nixos`.
+
+## Btrfs Swapfile Creation
+```sh
+btrfs sub create /swap
+btrfs filesystem mkswapfile --size 16g /swap/Swapfile
+```

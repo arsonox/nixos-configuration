@@ -54,6 +54,14 @@
     framework-tool-tui
   ];
 
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      size = 16 * 1024; # 16GiB
+      priority = 1;
+    }
+  ];
+
   /*
     nixpkgs.overlays = [
       (self: super: {
