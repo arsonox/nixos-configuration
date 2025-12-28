@@ -28,6 +28,10 @@
     };
   };
 
+  zramSwap = {
+    writebackDevice = "/dev/nvme0n1p2";
+  };
+
   hardware.amdgpu.initrd.enable = true;
 
   imports = [

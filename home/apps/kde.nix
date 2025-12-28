@@ -15,11 +15,11 @@
         size = 22;
       };
       iconTheme = "Breeze Chameleon Dark";
-      wallpaper = /etc/nixos/assets/GyRo9sDWEAAIrql.jpg;
+      wallpaper = ../../wallpapers/evernight.jpg;
     };
 
     kscreenlocker = {
-      appearance.wallpaper = /etc/nixos/assets/castorice-purple.jpg;
+      appearance.wallpaper = ../../wallpapers/castorice-purple.jpg;
     };
 
     hotkeys.commands."launch-konsole" = {
