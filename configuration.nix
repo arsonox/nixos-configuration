@@ -88,6 +88,8 @@ in
 
   services.fwupd.enable = true;
 
+  services.envfs.enable = true;
+
   services.libinput.enable = true;
 
   programs.zsh.enable = true;
