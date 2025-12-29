@@ -3,15 +3,15 @@
 {
   networking.hostName = "fwdesktop";
 
-  /*
-    nix.settings.system-features = [
-      "nixos-test"
-      "benchmark"
-      "big-parallel"
-      "kvm"
-      "gccarch-znver5"
-    ];
+  nix.settings.system-features = [
+    "nixos-test"
+    "benchmark"
+    "big-parallel"
+    "kvm"
+    "gccarch-znver5"
+  ];
 
+  /*
     nixpkgs.hostPlatform = {
       gcc.arch = "znver5";
       gcc.tune = "znver5";

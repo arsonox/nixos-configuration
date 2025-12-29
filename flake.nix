@@ -60,7 +60,6 @@
           config.security.run0-sudo-shim.enable = true;
         }
       ];
-      # specialArgs = { inherit assets; };
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {

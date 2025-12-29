@@ -30,19 +30,19 @@ in
           );
       in
       {
-        firefox = withZnver5 super.firefox;
+        firefox-unwrapped = withZnver5 super.firefox-unwrapped;
 
-        ffmpeg = withZnver5 super.ffmpeg;
-        libvpx = withZnver5 super.libvpx;
-        x264 = withZnver5 super.x264;
-        x265 = withZnver5 super.x265;
+        # ffmpeg = withZnver5 super.ffmpeg;
+        # libvpx = withZnver5 super.libvpx;
+        # x264 = withZnver5 super.x264;
+        # x265 = withZnver5 super.x265;
 
-        zstd = withZnver5 super.zstd;
-        openssl = withZnver5 super.openssl;
+        # zstd = withZnver5 super.zstd;
+        # openssl = withZnver5 super.openssl;
 
-        mesa = withZnver5 super.mesa;
+        # mesa = withZnver5 super.mesa;
 
-        jemalloc = withZnver5 super.jemalloc;
+        # jemalloc = withZnver5 super.jemalloc;
       }
     )
   ];
