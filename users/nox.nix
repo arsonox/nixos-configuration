@@ -25,9 +25,6 @@
       ungoogled-chromium
       iperf3
       mission-center
-      #(ollama.override {
-      #  acceleration = "rocm";
-      #})
       jq
       nixd
       nixfmt
@@ -35,6 +32,8 @@
       go
       gopls
       lmstudio
+      trezor-suite
+      trezord
     ];
   };
 }
