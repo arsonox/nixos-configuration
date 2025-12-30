@@ -22,6 +22,10 @@
       url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    #kwin-effects-forceblur = {
+    #  url = "github:taj-ny/kwin-effects-forceblur";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     #assets = {
     #  url = "git+ssh://git@github.com/arsonox/nixos-assets";
     #};
@@ -64,12 +68,14 @@
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
           ./machines/nixos.nix
         ];
       };
       nixosConfigurations.fwdesktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
           ./machines/fwdesktop.nix
           { nixpkgs.config.rocmSupport = true; }
@@ -77,6 +83,7 @@
       };
       nixosConfigurations.lappytop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
           ./machines/lappytop.nix
         ];

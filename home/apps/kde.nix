@@ -15,7 +15,7 @@
         size = 22;
       };
       iconTheme = "Breeze Chameleon Dark";
-      wallpaper = ../../wallpapers/evernight.jpg;
+      wallpaper = "${../../wallpapers/evernight.jpg}";
     };
 
     kscreenlocker = {
