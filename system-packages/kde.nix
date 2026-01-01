@@ -8,14 +8,18 @@
     variant = "alt-intl";
   };
 
-  environment.systemPackages = with pkgs.kdePackages; [
-    discover
-    sddm-kcm
-    kcolorchooser
-    krdc
-    kgpg
-    kgamma
-  ];
+  environment.systemPackages =
+    with pkgs.kdePackages;
+    with pkgs;
+    [
+      discover
+      sddm-kcm
+      kcolorchooser
+      krdc
+      kgpg
+      kgamma
+      plasma-wallpaper-application
+    ];
 
   #ibus is required for us alt-intl input for the gtk snowflakes since 4.20+.
   i18n.inputMethod = {

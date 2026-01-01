@@ -16,6 +16,7 @@ in
   imports = [
     ./boot.nix
     ./overlays/znver5.nix
+    ./overlays/plasma-wallpaper-application.nix
   ]
   ++ userlist
   ++ system-packagelist;
@@ -137,6 +138,7 @@ in
     ethtool
     v4l-utils
     usbutils
+    mpv
   ];
 
   #system.autoUpgrade.enable = true;
