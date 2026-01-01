@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  #nur = inputs.nur;
-in
 {
   virtualisation.waydroid = {
     enable = true;

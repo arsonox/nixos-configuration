@@ -36,7 +36,7 @@
 
   imports = [
     ./lappytop-hw.nix
-    ../configuration.nix
+    ../shared
   ];
 
   hardware.nvidia.open = true;

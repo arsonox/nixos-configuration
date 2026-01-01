@@ -26,9 +26,6 @@
     #  url = "github:taj-ny/kwin-effects-forceblur";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
-    #assets = {
-    #  url = "git+ssh://git@github.com/arsonox/nixos-assets";
-    #};
   };
 
   outputs =
@@ -70,14 +67,14 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
-          ./machines/nixos.nix
+          ./hosts/nixos
         ];
       };
       nixosConfigurations.fwdesktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
-          ./machines/fwdesktop.nix
+          ./hosts/fwdesktop
           { nixpkgs.config.rocmSupport = true; }
         ];
       };
@@ -85,7 +82,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = sharedModules ++ [
-          ./machines/lappytop.nix
+          ./hosts/lappytop
         ];
       };
     };

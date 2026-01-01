@@ -6,16 +6,16 @@
 
 let
   userlist = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
-    lib.filesystem.listFilesRecursive ./users
+    lib.filesystem.listFilesRecursive ../../users
   );
   system-packagelist = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
-    lib.filesystem.listFilesRecursive ./system-packages
+    lib.filesystem.listFilesRecursive ../../system-packages
   );
 in
 {
   imports = [
     ./boot.nix
-    ./overlays
+    ../../overlays
   ]
   ++ userlist
   ++ system-packagelist;

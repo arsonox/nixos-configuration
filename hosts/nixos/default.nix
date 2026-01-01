@@ -28,6 +28,6 @@
 
   imports = [
     ./nixos-hw.nix
-    ../configuration.nix
+    ../shared
   ];
 }

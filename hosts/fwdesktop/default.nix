@@ -46,7 +46,7 @@
 
   imports = [
     ./fwdesktop-hw.nix
-    ../configuration.nix
+    ../shared
   ];
 
   environment.systemPackages = with pkgs; [

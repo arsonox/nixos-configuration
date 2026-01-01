@@ -1,5 +1,4 @@
 transcode evernight mp4 wallpaper
-`ffmpeg -i evernight.mp4 -crf 16 evernight.avif`
 `ffmpeg -i evernight.mp4 -crf 16 -pix_fmt yuv420p10le -c:v libaom-av1 evernight.avif`
 
 ```
