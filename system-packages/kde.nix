@@ -19,7 +19,6 @@
       kgpg
       kgamma
       plasma-wallpaper-application
-      plasma-smart-video-wallpaper-reborn
     ];
 
   #ibus is required for us alt-intl input for the gtk snowflakes since 4.20+.

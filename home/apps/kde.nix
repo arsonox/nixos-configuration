@@ -37,6 +37,49 @@
       ];
     };
 
+    window-rules = [
+      {
+        description = "Window settings for mpv-wallpaper";
+        match = {
+          window-class = {
+            value = "mpv";
+            type = "exact";
+          };
+          title = {
+            value = "mpv-wallpaper";
+            type = "exact";
+          };
+          window-types = [ "normal" ];
+        };
+        apply = {
+          below = {
+            value = true;
+            apply = "force";
+          };
+          skiptaskbar = {
+            value = true;
+            apply = "force";
+          };
+          skippager = {
+            value = true;
+            apply = "force";
+          };
+          noborder = {
+            value = true;
+            apply = "force";
+          };
+          fpplevel = {
+            value = 4;
+            apply = "force";
+          };
+          acceptfocus = {
+            value = false;
+            apply = "force";
+          };
+        };
+      }
+    ];
+
     panels = [
       {
         location = "top";
