@@ -15,8 +15,7 @@ in
 {
   imports = [
     ./boot.nix
-    ./overlays/znver5.nix
-    ./overlays/plasma-wallpaper-application.nix
+    ./overlays
   ]
   ++ userlist
   ++ system-packagelist;
