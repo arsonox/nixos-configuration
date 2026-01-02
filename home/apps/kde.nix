@@ -143,7 +143,7 @@
               ];
             };
           }
-          "org.kde.plasma.panelspacer"
+          "org.kde.plasma.marginsseparator"
           "org.kde.plasma.trash"
         ];
       }
