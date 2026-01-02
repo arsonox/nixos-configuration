@@ -138,9 +138,13 @@
                 "applications:org.kde.dolphin.desktop"
                 "applications:firefox.desktop"
                 "applications:org.kde.konsole.desktop"
+                "applications:dev.zed.Zed.desktop"
+                "applications:com.moonlight_stream.Moonlight.desktop"
               ];
             };
           }
+          "org.kde.plasma.panelspacer"
+          "org.kde.plasma.trash"
         ];
       }
     ];
