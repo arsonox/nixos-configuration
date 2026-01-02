@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   networking.hostName = "fwdesktop";
@@ -40,8 +40,7 @@
   imports = [
     ./fwdesktop-hw.nix
     ../shared
-    ../shared/optional/ollama.nix
-    ../shared/optional/rocm.nix
+    ./services
   ];
 
   environment.systemPackages = with pkgs; [

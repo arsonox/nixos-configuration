@@ -30,17 +30,12 @@ in
           );
       in
       {
-        firefox-unwrapped = withZnver5 super.firefox-unwrapped;
+        # firefox-unwrapped = withZnver5 super.firefox-unwrapped;
 
-        # ffmpeg = withZnver5 super.ffmpeg;
+        ffmpeg-full = withZnver5 super.ffmpeg-full;
         # libvpx = withZnver5 super.libvpx;
         # x264 = withZnver5 super.x264;
         # x265 = withZnver5 super.x265;
-
-        # zstd = withZnver5 super.zstd;
-        # openssl = withZnver5 super.openssl;
-
-        # mesa = withZnver5 super.mesa;
 
         # jemalloc = withZnver5 super.jemalloc;
       }
