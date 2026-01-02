@@ -44,5 +44,6 @@
     lmstudio
     trezor-suite
     trezord
+    appflowy
   ];
 }
