@@ -11,13 +11,6 @@
     "gccarch-znver5"
   ];
 
-  /*
-    nixpkgs.hostPlatform = {
-      gcc.arch = "znver5";
-      gcc.tune = "znver5";
-      system = "x86_64-linux";
-    };
-  */
   powerManagement = {
     enable = true;
     powertop.enable = true;
@@ -47,6 +40,8 @@
   imports = [
     ./fwdesktop-hw.nix
     ../shared
+    ../shared/optional/ollama.nix
+    ../shared/optional/rocm.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -61,21 +56,6 @@
       priority = 1;
     }
   ];
-
-  /*
-    nixpkgs.overlays = [
-      (self: super: {
-        ffmpeg = super.ffmpeg.overrideAttrs (old: {
-          preConfigure = ''
-            configureFlagsArray+=(
-              "--extra-cflags=-O2 -march=znver5 -mtune=znver5"
-            )
-          '';
-          configureFlags = old.configureFlags;
-        });
-      })
-    ];
-  */
 
   services.xserver.videoDrivers = [
     "amdgpu"

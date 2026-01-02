@@ -1,24 +1,17 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 
 let
   userlist = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
-    lib.filesystem.listFilesRecursive ../../users
-  );
-  system-packagelist = lib.filter (n: lib.strings.hasSuffix ".nix" n) (
-    lib.filesystem.listFilesRecursive ../../system-packages
+    lib.filesystem.listFilesRecursive ./users
   );
 in
 {
   imports = [
     ./boot.nix
     ../../overlays
+    ./global
   ]
-  ++ userlist
-  ++ system-packagelist;
+  ++ userlist;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -35,9 +28,6 @@ in
     priority = 100;
   };
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Amsterdam";
@@ -97,7 +87,6 @@ in
   programs.dconf.enable = true;
 
   programs.virt-manager.enable = true;
-  #users.groups.libvirtd.members = [ "nox" ]; # is this even required?
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
@@ -119,30 +108,6 @@ in
     # This is still experimental and therefore not enabled by default.
     # NIXOS_OZONE_WL = "1";
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    libsForQt5.qtstyleplugin-kvantum
-    tealdeer
-    python3
-    wayland-utils
-    streamcontroller
-    wireguard-tools
-    protonvpn-gui
-    protonup-qt
-    powertop
-    ethtool
-    v4l-utils
-    usbutils
-    mpv
-  ];
-
-  #system.autoUpgrade.enable = true;
-  #system.autoUpgrade.allowReboot = false;
-
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
@@ -151,12 +116,6 @@ in
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -164,8 +123,6 @@ in
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   networking.firewall = {
     checkReversePath = false;

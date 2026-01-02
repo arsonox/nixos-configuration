@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
+
 {
-	boot = {
-		consoleLogLevel = 3;
-		initrd.verbose = false;
-		initrd.systemd.enable = true;
+  boot = {
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    initrd.systemd.enable = true;
 
     extraModulePackages = with config.boot.kernelPackages; [
       v4l2loopback.out
@@ -19,11 +20,11 @@
     '';
 
     kernelParams = [
-			"quiet"
-			"initremap=on"
-			"boot.shell_on_fail"
-			"udev.log_priority=3"
-			"rd.systemd.show_status=auto"
+      "quiet"
+      "initremap=on"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
     ];
 
     kernel = {
@@ -32,8 +33,8 @@
       };
     };
 
-		plymouth.enable = true;
-		plymouth.font = "${pkgs.hack-font}/share/fonts/truetype/Hack-Regular.ttf";
-		plymouth.logo = "${pkgs.nixos-icons}/share/icons/hicolor/128x128/apps/nix-snowflake.png";
-	};
+    plymouth.enable = true;
+    plymouth.font = "${pkgs.hack-font}/share/fonts/truetype/Hack-Regular.ttf";
+    plymouth.logo = "${pkgs.nixos-icons}/share/icons/hicolor/128x128/apps/nix-snowflake.png";
+  };
 }

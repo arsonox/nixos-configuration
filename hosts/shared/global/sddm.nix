@@ -3,7 +3,7 @@
 let
   sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "purple_leaves";
-    themeConfig.Background = "${../wallpapers/castorice-purple.jpg}";
+    themeConfig.Background = "${../../../wallpapers/castorice-purple.jpg}";
   };
 in
 {

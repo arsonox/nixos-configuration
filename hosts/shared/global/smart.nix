@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   services.smartd = {
     enable = true;
