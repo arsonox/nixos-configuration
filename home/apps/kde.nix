@@ -43,7 +43,7 @@
         description = "Window settings for mpv-wallpaper";
         match = {
           window-class = {
-            value = "mpv";
+            value = "mpv mpv";
             type = "exact";
           };
           title = {
