@@ -8,6 +8,7 @@
       "deepseek-coder-v2"
       "qwen3-vl:8b"
       "gemma3:4b"
+      "nomic-embed-text"
     ];
   };
 }
