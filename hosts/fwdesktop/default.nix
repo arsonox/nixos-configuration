@@ -19,6 +19,8 @@
 
   services.power-profiles-daemon.enable = false;
 
+  # Use TLP to set the power profile to "performance". This is not a laptop
+  # so we don't need to think about preserving out battery.
   services.tlp = {
     enable = true;
     settings = {
@@ -30,10 +32,15 @@
     };
   };
 
+  # Disable usb autosuspend entirely. This is causing some weird issues.
   boot.kernelParams = [
     "usbcore.autosuspend=-1"
     "amd_pstate=active"
   ];
+
+  # Enable tmpfs for /tmp. This is not enabled by default because Nix might run
+  # out of space for compilation.
+  boot.tmp.useTmpfs = true;
 
   hardware.amdgpu.initrd.enable = true;
 
@@ -43,11 +50,8 @@
     ./services
   ];
 
-  environment.systemPackages = with pkgs; [
-    framework-tool
-    framework-tool-tui
-  ];
-
+  # Add a swapfile for now, but this might be removed at a later date if it is
+  # deemed unnecessary.
   swapDevices = [
     {
       device = "/swap/swapfile";

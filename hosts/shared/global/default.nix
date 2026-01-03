@@ -45,5 +45,6 @@
     trezor-suite
     trezord
     appflowy
+    btrfs-assistant
   ];
 }
