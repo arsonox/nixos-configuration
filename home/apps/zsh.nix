@@ -16,7 +16,6 @@
       la = "ls -la";
       update = "nh os switch --ask";
       micreset = "sudo usbreset 046d:0ab7";
-      run0t = "run0 script -q -c";
     };
     history.size = 100;
 
