@@ -9,6 +9,10 @@
   home.stateVersion = "25.11";
   programs.bash.enable = true;
 
+  home.sessionVariables = {
+    SSH_AUTH_SOCK = "/home/nox/.bitwarden-ssh-agent.sock";
+  };
+
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = [ "qemu:///system" ];

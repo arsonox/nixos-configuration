@@ -50,5 +50,6 @@
     trezord
     appflowy
     btrfs-assistant
+    bitwarden-desktop
   ];
 }
