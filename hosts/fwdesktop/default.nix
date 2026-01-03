@@ -42,7 +42,10 @@
 
   # Enable tmpfs for /tmp. This is not enabled by default because Nix might run
   # out of space for compilation.
-  boot.tmp.useTmpfs = true;
+  boot.tmp = {
+    useTmpfs = true;
+    tmpfsSize = "2G";
+  };
 
   hardware.amdgpu.initrd.enable = true;
 
