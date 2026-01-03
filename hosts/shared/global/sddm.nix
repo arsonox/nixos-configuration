@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 let
   sddm-astronaut = pkgs.sddm-astronaut.override {

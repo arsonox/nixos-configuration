@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  ...
+}:
+
 let
   # which hosts we install this on
   enabledHosts = [

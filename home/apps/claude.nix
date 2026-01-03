@@ -1,4 +1,6 @@
-{ ... }:
+{
+  ...
+}:
 
 {
   programs.claude-code = {

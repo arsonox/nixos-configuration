@@ -1,4 +1,7 @@
-{ lib, ... }:
+{
+  lib,
+  ...
+}:
 
 {
   home.username = "nox";
@@ -13,7 +16,5 @@
     };
   };
 
-  imports = lib.filter
-    (n: lib.strings.hasSuffix ".nix" n)
-    (lib.filesystem.listFilesRecursive ./apps);
+  imports = with lib; filter (n: strings.hasSuffix ".nix" n) (filesystem.listFilesRecursive ./apps);
 }

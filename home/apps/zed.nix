@@ -1,4 +1,6 @@
-{ ... }:
+{
+  ...
+}:
 
 {
   programs.zed-editor = {

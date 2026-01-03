@@ -1,4 +1,6 @@
-{ pkgs, lib, ... }:
+{
+  ...
+}:
 
 {
   networking.hostName = "fwdesktop";

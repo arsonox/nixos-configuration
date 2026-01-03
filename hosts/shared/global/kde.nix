@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   services.xserver.enable = true;
@@ -20,6 +23,8 @@
       kgamma
       plasma-wallpaper-application
     ];
+
+  programs.kdeconnect.enable = true;
 
   #ibus is required for us alt-intl input for the gtk snowflakes since 4.20+.
   i18n.inputMethod = {
