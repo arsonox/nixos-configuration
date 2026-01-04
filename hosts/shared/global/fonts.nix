@@ -15,5 +15,6 @@
     open-sans
     dejavu_fonts
     ipafont
+    nerd-fonts.hack
   ];
 }
