@@ -157,11 +157,10 @@
         value = 1;
         immutable = true;
       };
-      "kwinrc"."Wayland"."InputMethod[$e]" = {
-        value = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
+      "kwinrc"."Wayland"."InputMethod" = {
+        value = "/run/current-system/sw/share/applications/org.freedesktop.IBus.Panel.Wayland.Gtk3.desktop";
         immutable = true;
       };
-
     };
   };
 }
