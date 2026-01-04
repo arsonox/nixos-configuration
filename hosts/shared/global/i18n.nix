@@ -27,9 +27,9 @@ rec {
       {
         GTK_IM_MODULE = lib.mkForce null;
         QT_IM_MODULE = lib.mkForce null;
-
       }
     else
-      { };
-
+      {
+        XMODIFIERS = "@im=fcitx";
+      };
 }
