@@ -153,10 +153,15 @@
     ];
 
     configFile = {
-      kwinrc.Desktops.Number = {
+      "kwinrc"."Desktops"."Number" = {
         value = 1;
         immutable = true;
       };
+      "kwinrc"."Wayland"."InputMethod[$e]" = {
+        value = "/run/current-system/sw/share/applications/fcitx5-wayland-launcher.desktop";
+        immutable = true;
+      };
+
     };
   };
 }
