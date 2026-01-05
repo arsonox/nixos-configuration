@@ -29,4 +29,15 @@
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     kate
   ];
+
+  # These ports need to be open in the firewall for KDE connect to work.
+  networking.firewall = rec {
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
+  };
 }
