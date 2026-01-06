@@ -13,5 +13,6 @@
   environment.systemPackages = with pkgs; [
     framework-tool
     framework-tool-tui
+    amdgpu_top
   ];
 }
