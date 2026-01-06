@@ -14,6 +14,7 @@
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
+      cat = "bat --paging=never";
       update = "nh os switch --ask";
       micreset = "sudo usbreset 046d:0ab7";
     };
