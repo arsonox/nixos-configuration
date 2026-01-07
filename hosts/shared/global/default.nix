@@ -51,5 +51,7 @@
     appflowy
     btrfs-assistant
     bitwarden-desktop
+    duf
+    gping
   ];
 }
