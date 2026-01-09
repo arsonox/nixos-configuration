@@ -4,15 +4,10 @@
   ...
 }:
 
-let
-  pkgs-zed = import inputs.nixpkgs-zed {
-    system = pkgs.stdenv.hostPlatform.system;
-  };
-in
 {
   programs.zed-editor = {
     enable = true;
-    package = pkgs-zed.zed-editor;
+    package = pkgs.zed-editor.overrideAttrs ( oldAttrs: { doCheck = false; } );
     userSettings = {
       telemetry = {
         metrics = false;
