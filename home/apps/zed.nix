@@ -6,9 +6,9 @@
 {
   programs.zed-editor = {
     enable = true;
-    package = pkgs.zed-editor.overrideAttrs (oldAttrs: {
-      doCheck = false;
-    });
+    # package = pkgs.zed-editor.overrideAttrs (oldAttrs: {
+    #   doCheck = false;
+    # });
     userSettings = {
       telemetry = {
         metrics = false;
