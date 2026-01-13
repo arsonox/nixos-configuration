@@ -10,7 +10,7 @@
     enable = true;
     wrappedBinaries = {
       firefox = {
-        executable = "${lib.getBin pkgs.firefox}/bin/firefox";
+        executable = lib.getExe pkgs.firefox;
         profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
         extraArgs = [
           # Enable AppArmor confinement
@@ -37,17 +37,17 @@
       };
 
       gajim = {
-        executable = "${lib.getExe pkgs.gajim}";
+        executable = lib.getExe pkgs.gajim;
         profile = "${pkgs.firejail}/etc/firejail/gajim.profile";
       };
 
       telegram-desktop = {
-        executable = "${lib.getExe pkgs.telegram-desktop}";
+        executable = lib.getExe pkgs.telegram-desktop;
         profile = "${pkgs.firejail}/etc/firejail/telegram.profile";
       };
 
       mpv = {
-        executable = "${lib.getExe pkgs.mpv}";
+        executable = lib.getExe pkgs.mpv;
         profile = "${pkgs.firejail}/etc/firejail/mpv.profile";
       };
 

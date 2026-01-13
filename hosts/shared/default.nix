@@ -133,10 +133,19 @@ in
     checkReversePath = false;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    extra-nix-path = "nixpkgs=flake:nixpkgs";
+    accept-flake-config = true;
+  };
+
+  # Allow unfree packages in nix repl and other nix commands
+  nix.extraOptions = ''
+    allow-unfree = true
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

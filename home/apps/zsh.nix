@@ -17,6 +17,8 @@
       cat = "bat --paging=never";
       update = "nh os switch --ask";
       micreset = "sudo usbreset 046d:0ab7";
+      # nixrepl = "NIXPKGS_ALLOW_UNFREE=1 nix repl --impure --expr 'import <nixpkgs>{}'";
+      nixrepl = "nix repl --expr 'import <nixpkgs>{}'";
     };
     history.size = 100;
 
