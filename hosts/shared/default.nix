@@ -109,6 +109,9 @@ in
       "${XDG_BIN_HOME}"
     ];
 
+    # Allow unfree packages in nix repl without --impure flag
+    NIXPKGS_ALLOW_UNFREE = "1";
+
     # In order for Wayland to be used by Chrome and Electron apps, we need to enable Ozone Wayland support.
     # This is still experimental and therefore not enabled by default.
     # NIXOS_OZONE_WL = "1";
@@ -138,14 +141,7 @@ in
       "nix-command"
       "flakes"
     ];
-    extra-nix-path = "nixpkgs=flake:nixpkgs";
-    accept-flake-config = true;
   };
-
-  # Allow unfree packages in nix repl and other nix commands
-  nix.extraOptions = ''
-    allow-unfree = true
-  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
