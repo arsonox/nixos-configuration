@@ -32,22 +32,22 @@
         profile = "${pkgs.firejail}/etc/firejail/discord.profile";
       };
       Discord = {
-        executable = "${lib.getBin pkgs.discord}/bin/Discord";
+        executable = "${lib.getExe pkgs.discord}";
         profile = "${pkgs.firejail}/etc/firejail/discord.profile";
       };
 
       gajim = {
-        executable = "${lib.getBin pkgs.gajim}/bin/gajim";
+        executable = "${lib.getExe pkgs.gajim}";
         profile = "${pkgs.firejail}/etc/firejail/gajim.profile";
       };
 
       telegram-desktop = {
-        executable = "${lib.getBin pkgs.telegram-desktop}/bin/Telegram";
+        executable = "${lib.getExe pkgs.telegram-desktop}";
         profile = "${pkgs.firejail}/etc/firejail/telegram.profile";
       };
 
       mpv = {
-        executable = "${lib.getBin pkgs.mpv}/bin/mpv";
+        executable = "${lib.getExe pkgs.mpv}";
         profile = "${pkgs.firejail}/etc/firejail/mpv.profile";
       };
 
