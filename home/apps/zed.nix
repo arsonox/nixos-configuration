@@ -18,7 +18,7 @@
       ensure_final_newline_on_save = false;
       theme = {
         mode = "dark";
-        dark = "One Light";
+        dark = "One Dark";
         light = "One Light";
       };
       icon_theme = {
