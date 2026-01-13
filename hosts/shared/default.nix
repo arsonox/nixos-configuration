@@ -14,6 +14,7 @@ in
     ./boot.nix
     ../../overlays
     ./global
+    ./security
   ]
   ++ userlist;
 

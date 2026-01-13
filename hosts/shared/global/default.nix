@@ -33,7 +33,6 @@
     telegram-desktop
     winbox4
     wakelan
-    haruna
     yt-dlp
     ungoogled-chromium
     iperf3
