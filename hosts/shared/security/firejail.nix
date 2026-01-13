@@ -32,7 +32,7 @@
         profile = "${pkgs.firejail}/etc/firejail/discord.profile";
       };
       Discord = {
-        executable = "${lib.getExe pkgs.discord}";
+        executable = lib.getExe pkgs.discord;
         profile = "${pkgs.firejail}/etc/firejail/discord.profile";
       };
 
