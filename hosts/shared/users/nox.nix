@@ -13,6 +13,7 @@
       "wheel"
       "libvirtd"
       "kvm"
+      "tss" # TPM devices
     ];
   };
 }
