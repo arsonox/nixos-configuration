@@ -27,6 +27,9 @@ let
     dbus-user.talk org.freedesktop.portal.RemoteDesktop
     dbus-user.talk org.freedesktop.portal.Camera
 
+    # D-Bus system tray
+    dbus-user.talk org.kde.StatusNotifierWatcher
+
     # Allow video devices for webcam and capture cards
     noblacklist /dev/video*
     noblacklist /sys/devices
@@ -150,40 +153,9 @@ let
     protocol unix,inet,inet6,netlink
     seccomp
   '';
-
-  # Custom Telegram profile for NixOS compatibility
-  telegramProfile = pkgs.writeText "telegram-nixos.profile" ''
-    # Custom Telegram profile for NixOS
-    noblacklist ''${HOME}/.local/share/TelegramDesktop
-
-    mkdir ''${HOME}/.local/share/TelegramDesktop
-    whitelist ''${HOME}/.local/share/TelegramDesktop
-    whitelist ''${HOME}/Downloads
-
-    # Network access
-    netfilter
-
-    # D-Bus for notifications
-    dbus-user filter
-    dbus-user.talk org.freedesktop.Notifications
-    dbus-user.talk org.freedesktop.portal.Desktop
-    dbus-user.talk org.freedesktop.portal.Documents
-
-    # Audio/video for calls
-    noblacklist /dev/video*
-    noblacklist /dev/snd
-    noblacklist /dev/dri
-    noblacklist /run/user/*/pipewire-*
-
-    # Basic protections
-    caps.drop all
-    nonewprivs
-    noroot
-    protocol unix,inet,inet6,netlink
-    seccomp
-  '';
 in
 {
+
   programs.firejail = {
     enable = true;
     wrappedBinaries = {
@@ -214,11 +186,6 @@ in
       gajim = {
         executable = lib.getExe pkgs.gajim;
         profile = gajimProfile;
-      };
-
-      Telegram = {
-        executable = lib.getExe pkgs.telegram-desktop;
-        profile = telegramProfile;
       };
 
       mpv = {
