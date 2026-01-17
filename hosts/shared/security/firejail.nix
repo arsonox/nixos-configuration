@@ -14,6 +14,7 @@ let
     mkdir ''${HOME}/.config/discord
     whitelist ''${HOME}/.config/discord
     whitelist ''${HOME}/Downloads
+    whitelist ''${HOME}/Pictures
 
     # Network access
     netfilter
