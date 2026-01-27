@@ -52,5 +52,6 @@
     bitwarden-desktop
     duf
     gping
+    asm-lsp
   ];
 }
