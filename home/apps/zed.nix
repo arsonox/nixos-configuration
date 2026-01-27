@@ -32,6 +32,7 @@
       "go-snippets"
       "toml"
       "make"
+      "assembly"
     ];
   };
 }
