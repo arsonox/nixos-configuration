@@ -33,6 +33,7 @@
       "toml"
       "make"
       "assembly"
+      "zig"
     ];
   };
 }
