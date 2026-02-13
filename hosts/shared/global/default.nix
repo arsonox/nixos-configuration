@@ -53,5 +53,7 @@
     duf
     gping
     asm-lsp
+    signal-desktop
+    fluffychat
   ];
 }
