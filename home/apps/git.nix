@@ -21,7 +21,7 @@
         "/home/nox/.dotfiles"
       ];
 
-      config = {
+      extraConfig = {
         push = {
           autoSetupRemote = true;
         };
