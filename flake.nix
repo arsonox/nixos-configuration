@@ -54,7 +54,6 @@
         {
           imports = [ aagl.nixosModules.default ];
           nix.settings = aagl.nixConfig;
-          programs.honkers-railway-launcher.enable = true;
         }
         nur.modules.nixos.default
         inputs.run0-sudo-shim.nixosModules.default
