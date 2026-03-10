@@ -14,6 +14,7 @@
       "libvirtd"
       "kvm"
       "tss" # TPM devices
+      "docker"
     ];
   };
 }
