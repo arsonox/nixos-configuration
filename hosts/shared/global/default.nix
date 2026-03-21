@@ -55,6 +55,5 @@
     asm-lsp
     signal-desktop
     fluffychat
-    worldmonitor
   ];
 }
