@@ -10,5 +10,6 @@
     ./textual-sticky-notes-tui.nix
     # ./worldmonitor.nix
     ./elgato4k-linux.nix
+    ./tibia.nix
   ];
 }

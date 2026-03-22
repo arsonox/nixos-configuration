@@ -55,5 +55,6 @@
     asm-lsp
     signal-desktop
     fluffychat
+    tibia
   ];
 }
