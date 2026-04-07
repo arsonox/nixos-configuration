@@ -1,5 +1,6 @@
 {
   buildFHSEnv,
+  makeDesktopItem,
   lib,
   # Runtime deps
   alsa-lib,
@@ -38,6 +39,16 @@
   zlib,
 }:
 
+let
+  desktopItem = makeDesktopItem {
+    name = "tibia";
+    desktopName = "Tibia";
+    comment = "Tibia MMORPG client";
+    exec = "tibia";
+    icon = "/home/nox/Games/Tibia/tibia.ico";
+    categories = [ "Game" ];
+  };
+in
 buildFHSEnv {
   name = "tibia";
 
@@ -85,6 +96,10 @@ buildFHSEnv {
   '';
 
   runScript = "/home/nox/Games/Tibia/Tibia";
+
+  extraInstallCommands = ''
+    install -Dm444 ${desktopItem}/share/applications/*.desktop -t $out/share/applications
+  '';
 
   meta = {
     description = "Tibia MMORPG client (FHS wrapper)";
