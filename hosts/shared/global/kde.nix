@@ -22,7 +22,6 @@
       kgpg
       kgamma
       plasma-wallpaper-application
-      kdenlive
     ];
 
   programs.kdeconnect.enable = true;

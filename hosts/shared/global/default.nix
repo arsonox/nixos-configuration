@@ -19,7 +19,7 @@
     wayland-utils
     streamcontroller
     wireguard-tools
-    protonvpn-gui
+    proton-vpn
     powertop
     ethtool
     v4l-utils

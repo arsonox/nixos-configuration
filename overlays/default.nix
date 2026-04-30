@@ -11,5 +11,8 @@
     # ./worldmonitor.nix
     ./elgato4k-linux.nix
     ./tibia.nix
+
+    #i686 openldap tests are broken so for now just ignore
+    ./openldap.nix
   ];
 }
