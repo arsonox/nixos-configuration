@@ -34,6 +34,7 @@
       "make"
       "assembly"
       "zig"
+      "lua"
     ];
   };
 }
