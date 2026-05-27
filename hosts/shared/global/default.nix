@@ -56,5 +56,6 @@
     signal-desktop
     fluffychat
     tibia
+    runelite
   ];
 }
