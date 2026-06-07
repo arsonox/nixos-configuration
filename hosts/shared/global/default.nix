@@ -57,5 +57,6 @@
     fluffychat
     tibia
     runelite
+    bottles
   ];
 }
