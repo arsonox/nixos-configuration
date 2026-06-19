@@ -22,6 +22,10 @@
       url = "github:lordgrimmauld/run0-sudo-shim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    claude-code = {
+      url = "github:sadjow/claude-code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #kwin-effects-forceblur = {
     #  url = "github:taj-ny/kwin-effects-forceblur";
     #  inputs.nixpkgs.follows = "nixpkgs";
