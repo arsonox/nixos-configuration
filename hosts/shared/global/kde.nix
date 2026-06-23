@@ -29,4 +29,7 @@
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     kate
   ];
+
+  # for KRdp
+  networking.firewall.allowedTCPPorts = [ 3389 ];
 }
