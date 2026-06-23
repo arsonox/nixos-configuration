@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
@@ -44,7 +45,7 @@
     package-version-server
     go
     gopls
-    lmstudio
+    inputs.lmstudio.packages.${pkgs.stdenv.hostPlatform.system}.default
     trezor-suite
     trezord
     appflowy

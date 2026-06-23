@@ -26,6 +26,10 @@
       url = "github:sadjow/claude-code-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lmstudio = {
+      url = "github:Daaboulex/lmstudio-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #kwin-effects-forceblur = {
     #  url = "github:taj-ny/kwin-effects-forceblur";
     #  inputs.nixpkgs.follows = "nixpkgs";
