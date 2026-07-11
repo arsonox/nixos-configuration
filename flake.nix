@@ -30,6 +30,10 @@
       url = "github:Daaboulex/lmstudio-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hytale-launcher = {
+      url = "github:JPyke3/hytale-launcher-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #kwin-effects-forceblur = {
     #  url = "github:taj-ny/kwin-effects-forceblur";
     #  inputs.nixpkgs.follows = "nixpkgs";

@@ -59,5 +59,6 @@
     tibia
     runelite
     bottles
+    inputs.hytale-launcher.packages.x86_64-linux.default
   ];
 }
