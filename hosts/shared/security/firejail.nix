@@ -57,7 +57,7 @@ let
     nonewprivs
     noroot
     protocol unix,inet,inet6,netlink
-    seccomp
+    seccomp !mount,!umount2,!pivot_root,!chroot
   '';
 
   # Wrapper for Discord that disables Chrome's internal sandbox (firejail provides sandboxing)
