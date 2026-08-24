@@ -35,7 +35,6 @@
     winbox4
     wakelan
     yt-dlp
-    ungoogled-chromium
     iperf3
     mission-center
     jq
