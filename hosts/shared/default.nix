@@ -23,7 +23,6 @@ in
 
   hardware.cpu.amd.updateMicrocode = true;
 
-  # Temporarily set this to 6.19 because linux 7.0 is a hot fucking mess right now
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   zramSwap = {

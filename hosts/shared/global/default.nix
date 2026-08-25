@@ -56,6 +56,7 @@
     signal-desktop
     fluffychat
     tibia
+    ibkr-desktop
     runelite
     bottles
     inputs.hytale-launcher.packages.x86_64-linux.default
