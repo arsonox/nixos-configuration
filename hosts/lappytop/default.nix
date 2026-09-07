@@ -38,6 +38,7 @@
 
   imports = [
     ./lappytop-hw.nix
+    ./services
     ../shared
   ];
 
