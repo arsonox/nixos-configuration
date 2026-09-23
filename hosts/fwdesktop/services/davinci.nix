@@ -4,7 +4,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    davinci-resolve
+    # davinci-resolve
   ];
   environment.variables = {
     RUSTICL_ENABLE = "radeonsi";
