@@ -20,7 +20,6 @@
       kcolorchooser
       krdc
       kgpg
-      kgamma
       plasma-wallpaper-application
     ];
 

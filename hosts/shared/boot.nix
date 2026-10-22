@@ -1,10 +1,37 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 
 {
+  # Workaround: v4l2loopback 0.15.4 runs depmod into its own output, so its
+  # modules.* index files collide with the kernel's in aggregateModules.
+  # Patched in the kernel package set so programs.obs-studio.enableVirtualCamera
+  # picks it up too. Fixed upstream by NixOS/nixpkgs#575861 (merged 2026-10-21);
+  # remove this once nixos-unstable includes it.
+  nixpkgs.overlays = [
+    (final: prev: {
+      linuxPackages_latest = prev.linuxPackages_latest.extend (
+        kfinal: kprev: {
+          v4l2loopback = kprev.v4l2loopback.overrideAttrs (old: {
+            postInstall = (old.postInstall or "") + ''
+              rm -f $out/lib/modules/*/modules.*
+            '';
+          });
+        }
+      );
+    })
+  ];
+
+  # 1792627200 = 2026-10-22T00:00Z, after the fix merged to master.
+  warnings = pkgs.lib.optional (inputs.nixpkgs.lastModified >= 1792627200) ''
+    hosts/shared/boot.nix: nixpkgs is now newer than NixOS/nixpkgs#575861.
+    Try dropping the v4l2loopback modules.* override and using plain
+    v4l2loopback.out again.
+  '';
+
   boot = {
     consoleLogLevel = 3;
     initrd.verbose = false;
