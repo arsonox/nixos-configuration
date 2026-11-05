@@ -16,9 +16,7 @@
       linuxPackages_latest = prev.linuxPackages_latest.extend (
         kfinal: kprev: {
           v4l2loopback = kprev.v4l2loopback.overrideAttrs (old: {
-            postInstall = (old.postInstall or "") + ''
-              rm -f $out/lib/modules/*/modules.*
-            '';
+            installFlags = (old.installFlags or []) ++ ["DEPMOD=true"];
           });
         }
       );
