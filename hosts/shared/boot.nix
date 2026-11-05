@@ -32,8 +32,6 @@
 
   boot = {
     consoleLogLevel = 3;
-    initrd.verbose = false;
-    initrd.systemd.enable = true;
 
     extraModulePackages = with config.boot.kernelPackages; [
       v4l2loopback.out
