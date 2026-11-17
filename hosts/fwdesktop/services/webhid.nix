@@ -12,6 +12,7 @@ let
     text = ''
       # Grant the logged-in user access to Keychron hidraw devices for WebHID configurators
       SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", TAG+="uaccess"
+      # Grant access to Keychron devices in flash mode
       SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ENV{ID_USB_INTERFACES}=="*:fe0102:*", TAG+="uaccess"
     '';
   };

@@ -1,0 +1,91 @@
+diff --git a/keychron_battery.c b/keychron_battery.c
+index 7e2ba11..69b2574 100644
+--- a/keychron_battery.c
++++ b/keychron_battery.c
+@@ -14,6 +14,7 @@
+  *   - Keychron M5 (wireless via Ultra-Link 8K receiver): 3434:d028
+  *   - Keychron M6 (wired mode): 3434:d049
+  *   - Keychron M6 (wireless via Ultra-Link 8K receiver): 3434:d028
++ *   - Keychron G6 HE (wireless via TurboLink 8K receiver): 3434:d05a
+  *
+  * The receiver has the same USB ID for every mouse, so when connected
+  * through it the model is found by asking the receiver for the VID/PID of
+@@ -33,6 +34,8 @@
+ #define USB_DEVICE_ID_KEYCHRON_M5	0xd048
+ #define USB_DEVICE_ID_KEYCHRON_M6	0xd049
+ #define USB_DEVICE_ID_KEYCHRON_RECV	0xd028
++#define USB_DEVICE_ID_KEYCHRON_G6_HE	0xd09d
++#define USB_DEVICE_ID_KEYCHRON_TURBOLINK	0xd05a
+ 
+ #define KEYCHRON_REPORT_ID_CMD		0xB3
+ #define KEYCHRON_REPORT_ID_RESP		0xB4
+@@ -41,6 +44,7 @@
+ #define KEYCHRON_BATTERY_CHARGING	BIT(7)
+ #define KEYCHRON_BATTERY_LEVEL		GENMASK(6, 0)
+ #define KEYCHRON_VENDOR_INTERFACE	4
++#define KEYCHRON_TURBOLINK_VENDOR_INTERFACE	1
+ 
+ #define KEYCHRON_REPORT_ID_INFO		0xB5
+ #define KEYCHRON_CMD_RECV_STATE		0x03
+@@ -93,7 +97,10 @@ static const struct hid_device_id keychron_devices[] = {
+ 	  .driver_data = (kernel_ulong_t)"Keychron M5" },
+ 	{ HID_USB_DEVICE(USB_VENDOR_ID_KEYCHRON, USB_DEVICE_ID_KEYCHRON_M6),
+ 	  .driver_data = (kernel_ulong_t)"Keychron M6 8K" },
++	{ HID_USB_DEVICE(USB_VENDOR_ID_KEYCHRON, USB_DEVICE_ID_KEYCHRON_G6_HE),
++	  .driver_data = (kernel_ulong_t)"Keychron G6 HE" },
+ 	{ HID_USB_DEVICE(USB_VENDOR_ID_KEYCHRON, USB_DEVICE_ID_KEYCHRON_RECV) },
++	{ HID_USB_DEVICE(USB_VENDOR_ID_KEYCHRON, USB_DEVICE_ID_KEYCHRON_TURBOLINK) },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(hid, keychron_devices);
+@@ -216,8 +223,16 @@ static int keychron_query_once(struct keychron_device *kdev, u8 *buf,
+ 	if (ret < 0)
+ 		goto out;
+ 
+-	ret = hid_hw_raw_request(kdev->hdev, report_id, buf, len,
+-				 HID_OUTPUT_REPORT, HID_REQ_SET_REPORT);
++	/*
++	 * The TurboLink 8K accepts a SET_REPORT over the control endpoint but
++	 * never answers it; it only handles commands sent to its interrupt OUT
++	 * endpoint.
++	 */
++	if (kdev->hdev->product == USB_DEVICE_ID_KEYCHRON_TURBOLINK)
++		ret = hid_hw_output_report(kdev->hdev, buf, len);
++	else
++		ret = hid_hw_raw_request(kdev->hdev, report_id, buf, len,
++					 HID_OUTPUT_REPORT, HID_REQ_SET_REPORT);
+ 	if (ret < 0) {
+ 		usb_kill_urb(kdev->intr_urb);
+ 		goto out;
+@@ -345,7 +360,8 @@ static int keychron_detect_model(struct keychron_device *kdev)
+ 	if (kdev->model_name)
+ 		return 0;
+ 
+-	if (kdev->hdev->product == USB_DEVICE_ID_KEYCHRON_RECV) {
++	if (kdev->hdev->product == USB_DEVICE_ID_KEYCHRON_RECV ||
++	    kdev->hdev->product == USB_DEVICE_ID_KEYCHRON_TURBOLINK) {
+ 		ret = keychron_query_paired_product(kdev, &paired_device_id);
+ 		if (ret) {
+ 			hid_dbg(kdev->hdev,
+@@ -355,7 +371,9 @@ static int keychron_detect_model(struct keychron_device *kdev)
+ 		}
+ 
+ 		/* fallback, in case we don't find a match */
+-		kdev->model_name = "Keychron Ultra-Link 8K";
++		kdev->model_name =
++			kdev->hdev->product == USB_DEVICE_ID_KEYCHRON_TURBOLINK ?
++			"Keychron TurboLink 8K" : "Keychron Ultra-Link 8K";
+ 
+ 		for (id = keychron_devices; id->bus; id++) {
+ 			if (id->bus == paired_device_id.bus &&
+@@ -457,6 +475,10 @@ static bool keychron_is_vendor_interface(struct hid_device *hdev)
+ 		return false;
+ 
+ 	intf = to_usb_interface(hdev->dev.parent);
++	if (hdev->product == USB_DEVICE_ID_KEYCHRON_TURBOLINK)
++		return intf->cur_altsetting->desc.bInterfaceNumber ==
++		       KEYCHRON_TURBOLINK_VENDOR_INTERFACE;
++
+ 	return intf->cur_altsetting->desc.bInterfaceNumber ==
+ 	       KEYCHRON_VENDOR_INTERFACE;
+ }
